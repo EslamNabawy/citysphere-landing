@@ -197,7 +197,7 @@ a:focus-visible,
 /* Footer */
 .site-footer { background: var(--navy); color: var(--ivory-dim); padding: var(--s7) 0 var(--s5); }
 .site-footer .top { display: flex; justify-content: space-between; gap: var(--s6); flex-wrap: wrap; }
-.site-footer .brand img { height: 30px; margin-bottom: var(--s3); }
+.site-footer img { height: 32px; width: auto; margin-bottom: var(--s3); }
 .site-footer h4 { color: #fff; font-size: var(--fs-sm); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--s3); }
 .site-footer a { color: var(--ivory-dim); }
 .site-footer a:hover { color: var(--turquoise); }
