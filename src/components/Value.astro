@@ -1,0 +1,45 @@
+---
+const pillars = [
+  { title: 'Outcome-first', desc: 'Every technology element must improve a real city-service outcome.' },
+  { title: 'One ecosystem', desc: 'Mobility, waste, energy, operations, and citizens connected — not separate projects.' },
+  { title: 'Earlier action', desc: 'Starts with monitoring and prioritization; grows toward prediction only when evidence supports it.' },
+  { title: 'Citizen value', desc: 'The score is a more reliable, responsive city — not a device count.' },
+  { title: 'Pilot discipline', desc: 'NEBU earns the right to scale through measured results.' },
+];
+const promise = [
+  'Reliable essential services',
+  'Privacy by design',
+  'Measurable performance',
+  'Human accountability — AI advises, teams decide and act',
+];
+---
+<section class="section value" id="value">
+  <div class="container">
+    <span class="eyebrow">Why NEBU</span>
+    <h2>A different smart-city logic</h2>
+    <p class="lead">
+      Most efforts stop at Devices → Data → Dashboard. NEBU completes the chain: Infrastructure →
+      Connected information → Prioritized insight → Accountable action → Measured outcome → Continuous
+      improvement.
+    </p>
+
+    <div class="value-grid">
+      {
+        pillars.map((p) => (
+          <div class="value-card">
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="promise">
+      {
+        promise.map((t) => (
+          <span class="promise-item">{t}</span>
+        ))
+      }
+    </div>
+  </div>
+</section>

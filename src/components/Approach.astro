@@ -1,0 +1,55 @@
+---
+const plans = [
+  { id: '03', title: 'Project Schedule', desc: 'Sequences Approval → Requirements → Design → Build → Deploy → Test → Operate → Evaluate across 6 milestones and 8 workstreams.' },
+  { id: '04', title: 'Resource Allocation', desc: 'Allocates human and technical resources within the USD 5M ceiling; the category budget is the controlling financial baseline.' },
+  { id: '05', title: 'Communication', desc: 'Gets the right information to the right stakeholder via a single weekly status report and a lean meeting cadence.' },
+  { id: '06', title: 'Risk Management', desc: 'Tracks 12 risks with owners, mitigations, and a USD 300k contingency reserve.' },
+  { id: '07', title: 'Quality Assurance', desc: 'Tests 5 focus areas with a 48-hour critical non-conformance SLA and continuous field testing.' },
+];
+const stats = [
+  { n: 'USD 5M', l: 'Controlled pilot ceiling' },
+  { n: 'Sep 2026 – Jul 2027', l: 'Planned delivery window' },
+  { n: '8', l: 'Workstreams' },
+  { n: '5', l: 'QA focus areas' },
+  { n: '90%', l: 'Target system availability' },
+];
+---
+<section class="section approach" id="approach">
+  <div class="container">
+    <span class="eyebrow">How we deliver</span>
+    <h2>Discipline behind the city</h2>
+    <p class="lead">
+      NEBU is delivered as a controlled pilot — measured, governed, and accountable. Five planning
+      disciplines keep scope, budget, and quality on track.
+    </p>
+
+    <div class="plan-list">
+      {
+        plans.map((p) => (
+          <div class="plan-item">
+            <span class="plan-id">{p.id}</span>
+            <div>
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="stat-strip">
+      {
+        stats.map((s) => (
+          <div class="stat">
+            <div class="stat-n">{s.n}</div>
+            <div class="stat-l">{s.l}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="approach-note">
+      A controlled pilot, not a citywide rollout — credibility earned through measured results.
+    </p>
+  </div>
+</section>

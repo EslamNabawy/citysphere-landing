@@ -1,0 +1,35 @@
+---
+import SystemIcon from './SystemIcon.astro';
+const systems = [
+  { name: 'mobility', title: 'Smart Mobility', desc: 'Monitors congestion and traffic flows with cameras, signals, and parking technology — giving teams earlier visibility to coordinate response before delays spread.' },
+  { name: 'waste', title: 'Waste Management', desc: 'Smart bins and fill-level sensors prioritize collection before overflow, cutting emergency pickups and complaints.' },
+  { name: 'energy', title: 'Energy & Environment', desc: 'Meters and environmental sensors make consumption and conditions visible early, supporting sustainability and cost control.' },
+  { name: 'operations', title: 'City Operations', desc: 'A shared management view with KPIs and an accountable workflow — issues are resolved, not just displayed.' },
+  { name: 'citizen', title: 'Citizen App', desc: 'Residents submit requests, get alerts, see city info, check transit, pay utilities, and give feedback — in an accessible, multilingual service.' },
+  { name: 'connectivity', title: 'Connectivity & IoT', desc: 'The sensing and integration backbone — IoT devices, networking, and an integration hub that let services share one operating context.' },
+  { name: 'cyber', title: 'Cybersecurity & Data Protection', desc: 'Encryption, access controls, and privacy-by-design protect citizen records and command channels.' },
+  { name: 'realm', title: 'Public Realm', desc: 'The city gateway, wayfinding, and public space — the lived, human face of NEBU.' },
+];
+---
+<section class="section systems" id="systems">
+  <div class="container">
+    <span class="eyebrow">City systems</span>
+    <h2>What NEBU connects</h2>
+    <p class="lead">
+      NEBU is the operating layer that links the physical city, city teams, and citizens into one
+      coordinated loop — not a pile of sensors, and not another dashboard.
+    </p>
+
+    <div class="systems-grid">
+      {
+        systems.map((s) => (
+          <div class="feature-card">
+            <SystemIcon name={s.name} />
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
