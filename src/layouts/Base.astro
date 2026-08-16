@@ -2,15 +2,40 @@
 interface Props {
   title?: string;
   description?: string;
+  type?: string;
 }
 const {
   title = 'CitySphere — Smart Cities',
   description = 'CitySphere creates smart cities that improve how people live, move, work, and grow. Master developer and long-term operator; flagship NEBU.',
+  type = 'website',
 } = Astro.props;
 import '../styles/global.css';
 import { base } from 'astro:config/client';
----
 
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(`${base}/nebu-lockup.svg`, Astro.site);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${canonical.origin}/#organization`,
+      name: 'CitySphere',
+      url: canonical.origin,
+      logo: new URL(`${base}/favicon.svg`, Astro.site),
+      description:
+        'CitySphere is a master developer and long-term operator of smart cities in Egypt — building the physical city, connecting it digitally, operating it intelligently, and improving everyday life over time. Its flagship is NEBU.',
+    },
+    {
+      '@type': 'WebSite',
+      name: title,
+      url: canonical,
+      inLanguage: 'en',
+      publisher: { '@id': `${canonical.origin}/#organization` },
+    },
+  ],
+};
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,7 +43,25 @@ import { base } from 'astro:config/client';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#152238" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="CitySphere" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,5 +71,28 @@ import { base } from 'astro:config/client';
   </head>
   <body>
     <slot />
+    <script>
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        const els = Array.from(document.querySelectorAll('.section > .container > *'));
+        els.forEach((el) => {
+          el.classList.add('reveal');
+          const idx = Array.from(el.parentElement.children).indexOf(el);
+          if (idx > 0) el.style.transitionDelay = `${Math.min(idx * 0.05, 0.3)}s`;
+        });
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

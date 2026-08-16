@@ -617,6 +617,7 @@ a:focus-visible,
 .rhythm .chain-arrow { color: var(--turquoise-300); }
 
 /* Roadmap */
+.roadmap { background: #fff; }
 .phase-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -668,7 +669,7 @@ a:focus-visible,
 .milestone-desc { display: block; font-size: var(--fs-sm); color: var(--structure); margin-top: var(--s1); }
 
 /* Investment */
-.investment { background: #fff; }
+.investment { background: var(--ivory); }
 .alloc-list { display: grid; gap: var(--s4); margin-top: var(--s6); max-width: 720px; }
 .alloc-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); margin-bottom: var(--s2); }
 .alloc-label { font-weight: 600; color: var(--navy); }
@@ -678,6 +679,7 @@ a:focus-visible,
 .alloc-note { margin-top: var(--s4); font-size: var(--fs-sm); color: var(--structure); }
 
 /* Reliability & trust */
+.reliability { background: #fff; }
 .qa-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -848,4 +850,22 @@ a:focus-visible,
 @media (max-width: 400px) {
   .milestone-strip { grid-template-columns: 1fr; }
   .sdg-grid { grid-template-columns: 1fr; }
+}
+
+/* Documents: back link */
+.back-link { margin: 0 0 var(--s4); font-size: var(--fs-sm); }
+.back-link a { color: var(--turquoise-700); font-weight: 600; }
+.back-link a:hover { color: var(--turquoise-800); text-decoration: underline; }
+
+/* Scroll reveal (JS adds .reveal; no-JS stays visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
