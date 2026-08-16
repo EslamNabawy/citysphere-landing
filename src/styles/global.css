@@ -85,7 +85,8 @@ a:hover { text-decoration: underline; }
   margin-bottom: var(--s2);
 }
 
-.lead { font-size: var(--fs-lead); line-height: 1.55; }
+.lead { font-size: var(--fs-lead); line-height: 1.55; max-width: 62ch; }
+.section .lead { margin-bottom: var(--s2); }
 
 /* Buttons */
 .btn {
@@ -99,6 +100,7 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius-btn);
   border: 1px solid transparent;
   cursor: pointer;
+  min-height: 44px;
   transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
 .btn-primary { background: var(--turquoise); color: #fff; }
@@ -133,12 +135,15 @@ a:hover { text-decoration: underline; }
 .site-header .brand-icon { height: 46px; width: auto; display: block; }
 .brand-name { font-weight: 700; font-size: 1.35rem; color: var(--navy); letter-spacing: -0.01em; }
 .site-header nav { display: flex; align-items: center; gap: var(--s5); flex-wrap: wrap; }
-.nav-link { color: var(--navy); font-weight: 500; font-size: var(--fs-sm); white-space: nowrap; }
+.nav-link { color: var(--navy); font-weight: 600; font-size: 0.95rem; line-height: 1; white-space: nowrap; transition: color 0.18s ease; }
 .nav-link:hover { color: var(--turquoise); text-decoration: none; }
+.nav-link:focus-visible,
+a:focus-visible,
+.btn:focus-visible { outline: 2px solid var(--turquoise); outline-offset: 3px; border-radius: 4px; }
 
 /* Hero */
 .hero { background: var(--ivory); padding: var(--s9) 0 var(--s8); }
-.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--s7); align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s7); align-items: center; }
 .hero-copy { min-width: 0; }
 .hero .rule { width: 64px; height: 2px; background: var(--turquoise); margin: var(--s4) 0; }
 .hero p.lead { max-width: 52ch; color: var(--structure); }
@@ -244,7 +249,9 @@ a:hover { text-decoration: underline; }
   border: 1px solid var(--structure-soft);
   border-radius: var(--radius-card);
   padding: var(--s5);
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
+.feature-card:hover { border-color: var(--turquoise); transform: translateY(-2px); }
 .feature-icon { width: 40px; height: 40px; color: var(--turquoise); display: block; margin-bottom: var(--s3); }
 .feature-card h3 { font-size: var(--fs-h3); margin-bottom: var(--s2); }
 .feature-card p { margin: 0; color: var(--structure); font-size: var(--fs-sm); }
@@ -262,7 +269,9 @@ a:hover { text-decoration: underline; }
   border: 1px solid var(--structure-soft);
   border-radius: var(--radius-card);
   padding: var(--s5);
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
+.value-card:hover { border-color: var(--turquoise); transform: translateY(-2px); }
 .value-card h3 { font-size: var(--fs-h3); margin-bottom: var(--s2); }
 .value-card p { margin: 0; color: var(--structure); font-size: var(--fs-sm); }
 .value .eyebrow { color: var(--amber); }
