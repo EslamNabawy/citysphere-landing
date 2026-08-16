@@ -1,0 +1,64 @@
+---
+const pillars = [
+  { title: 'Availability', stat: '≥ 90%', desc: 'Platform uptime target for pilot operations.' },
+  { title: 'Data Quality', stat: 'Verified', desc: 'Signals validated before they become alerts.' },
+  { title: 'Security by design', stat: 'Built-in', desc: 'Protection applied from the first line of architecture.' },
+  { title: 'Interoperability', stat: 'Open', desc: 'Standards-based integration with city systems.' },
+  { title: 'User Experience', stat: 'Simple', desc: 'Interfaces city teams actually want to use.' },
+];
+const risks = [
+  { title: 'Technology', desc: 'Integration complexity — reduced by incremental rollouts.' },
+  { title: 'Delivery', desc: 'Schedule slip — managed with phase gates and clear milestones.' },
+  { title: 'Data', desc: 'Quality and privacy — protected by validation and privacy by design.' },
+  { title: 'People', desc: 'Adoption and skills — handled through training and co-design.' },
+];
+const trust = ['Inform', 'Explain', 'Engage', 'Listen', 'Improve'];
+---
+<section class="section reliability" id="reliability">
+  <div class="container">
+    <span class="eyebrow">Reliability & trust</span>
+    <h2>Smart is only useful when it is reliable — and trusted.</h2>
+    <p class="lead">
+      Five quality pillars keep the system dependable, and a continuous trust loop keeps the city
+      and its citizens involved.
+    </p>
+
+    <div class="qa-grid">
+      {
+        pillars.map((p) => (
+          <div class="qa-card">
+            <span class="qa-stat">{p.stat}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="risk-grid">
+      {
+        risks.map((r) => (
+          <div class="risk-card">
+            <h3>{r.title}</h3>
+            <p>{r.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="trust-band">
+      <span class="trust-label">Trust loop — people stay informed and involved</span>
+      <div class="trust-loop">
+        {
+          trust.map((t, i) => (
+            <>
+              <span class="trust-step">{t}</span>
+              {i < trust.length - 1 && <span class="chain-arrow" aria-hidden="true">→</span>}
+            </>
+          ))
+        }
+      </div>
+      <p class="trust-note">Personal data is protected by privacy by design — citizens are never the reporting burden.</p>
+    </div>
+  </div>
+</section>

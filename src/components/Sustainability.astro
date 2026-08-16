@@ -1,0 +1,52 @@
+---
+const goals = [
+  { num: '11', title: 'Sustainable Cities & Communities' },
+  { num: '9', title: 'Industry, Innovation & Infrastructure' },
+  { num: '7', title: 'Affordable & Clean Energy' },
+  { num: '12', title: 'Responsible Consumption & Production' },
+  { num: '13', title: 'Climate Action' },
+  { num: '17', title: 'Partnerships for the Goals' },
+];
+const partners = [
+  { title: 'Smart University', desc: 'Education, research, and living-lab collaboration.' },
+  { title: 'Smart Mall', desc: 'A commercial district connected into the city system.' },
+  { title: 'Smart Healthcare', desc: 'Facilities operating on the same shared rhythm.' },
+  { title: 'Smart Home', desc: 'Citizen households as partners, not reporting burdens.' },
+];
+---
+<section class="section sustainability" id="sustainability">
+  <div class="container">
+    <span class="eyebrow">Sustainability & global alignment</span>
+    <h2>From a smart city to a smart ecosystem.</h2>
+    <p class="lead">
+      NEBU aligns its goals with the United Nations Sustainable Development Goals the city values
+      most — starting with the places people already live, learn, work, and heal.
+    </p>
+
+    <div class="sdg-grid">
+      {
+        goals.map((g) => (
+          <div class="sdg-card">
+            <span class="sdg-num">{g.num}</span>
+            <h3>{g.title}</h3>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="partner-grid">
+      {
+        partners.map((p) => (
+          <div class="partner-card">
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="sdg-note">
+      NEBU's goals support these SDGs. This is not a claim of formal SDG compliance.
+    </p>
+  </div>
+</section>

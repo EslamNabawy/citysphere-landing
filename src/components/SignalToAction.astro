@@ -1,0 +1,47 @@
+---
+const steps = [
+  { title: 'Sensor detects', desc: 'A container approaches critical capacity.' },
+  { title: 'Platform understands', desc: 'NEBU recognizes the signal and predicts the need.' },
+  { title: 'Operations alerted', desc: 'City teams receive a prioritized, verified alert.' },
+  { title: 'Collection assigned', desc: 'The nearest route is adjusted to respond in time.' },
+  { title: 'Completed & verified', desc: 'The service is confirmed and the loop is closed.' },
+];
+const rhythm = ['Detect', 'Assess', 'Assign', 'Intervene', 'Verify', 'Improve'];
+---
+<section class="section signal" id="signal">
+  <div class="container">
+    <span class="eyebrow">From signal to service</span>
+    <h2>One signal, turned into an action the city actually takes.</h2>
+    <p class="lead">
+      Take a single waste container. In the reactive model, the bin overflows, a citizen complains,
+      and a truck is dispatched days later. In NEBU, the same problem is a five-step loop that ends
+      in a completed, verified service.
+    </p>
+
+    <div class="signal-grid">
+      {
+        steps.map((s, i) => (
+          <div class="signal-step">
+            <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="rhythm" role="group" aria-label="The operating rhythm">
+      <span class="rhythm-label">The operating rhythm</span>
+      <div class="rhythm-loop">
+        {
+          rhythm.map((r, i) => (
+            <>
+              <span class="rhythm-step">{r}</span>
+              {i < rhythm.length - 1 && <span class="chain-arrow" aria-hidden="true">→</span>}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

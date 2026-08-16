@@ -1,0 +1,39 @@
+---
+const allocations = [
+  { label: 'IoT / Smart Equipment', pct: 30 },
+  { label: 'Software / Cloud', pct: 20 },
+  { label: 'Smart Transportation', pct: 16 },
+  { label: 'Installation / Networking', pct: 12 },
+  { label: 'Human Resources', pct: 10 },
+  { label: 'Cybersecurity', pct: 6 },
+  { label: 'Contingency', pct: 6 },
+];
+---
+<section class="section investment" id="investment">
+  <div class="container">
+    <span class="eyebrow">Investment</span>
+    <h2>Where the investment creates capability.</h2>
+    <p class="lead">
+      A planned allocation within the USD 5M pilot ceiling — weighted toward the sensing layer and
+      the platform that turns signals into services.
+    </p>
+
+    <div class="alloc-list">
+      {
+        allocations.map((a) => (
+          <div class="alloc-row">
+            <div class="alloc-head">
+              <span class="alloc-label">{a.label}</span>
+              <span class="alloc-pct">{a.pct}%</span>
+            </div>
+            <div class="alloc-track" role="img" aria-label={`${a.label}: ${a.pct}%`}>
+              <div class="alloc-fill" style={`width:${a.pct}%`}></div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="alloc-note">Planned figures, subject to final charter approval and procurement outcomes.</p>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+const phases = [
+  { period: 'Sep – Oct 2026', title: 'Align & Define', desc: 'Charter, governance, data audit, baseline metrics, and success measures agreed with the city.' },
+  { period: 'Nov – Dec 2026', title: 'Design & Prepare', desc: 'Solution architecture, system design, procurement, and the integration plan.' },
+  { period: 'Jan – May 2027', title: 'Build & Integrate', desc: 'Sensors, platforms, and services built and connected into one operating system.' },
+  { period: 'Jun – Jul 2027', title: 'Deploy, Operate & Evaluate', desc: 'Controlled pilot, live operations, evaluation against success measures.' },
+];
+const milestones = [
+  { id: 'M1', date: 'Oct 2026', desc: 'Charter approved' },
+  { id: 'M2', date: 'Dec 2026', desc: 'Design & procurement ready' },
+  { id: 'M3', date: 'Feb 2027', desc: 'Connectivity & data platform live' },
+  { id: 'M4', date: 'Apr 2027', desc: 'Systems integrated' },
+  { id: 'M5', date: 'Jun 2027', desc: 'Pilot operational' },
+  { id: 'M6', date: 'Jul 2027', desc: 'Evaluation & scale decision' },
+];
+---
+<section class="section roadmap" id="roadmap">
+  <div class="container">
+    <span class="eyebrow">Delivery roadmap</span>
+    <h2>Building the city operating system — one gated phase at a time.</h2>
+    <p class="lead">
+      Twelve months of delivery, from alignment to evaluation. Every phase ends in a checkpoint so
+      investment stays anchored to evidence.
+    </p>
+
+    <div class="phase-grid">
+      {
+        phases.map((p, i) => (
+          <div class="phase-card">
+            <span class="phase-period">{p.period}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="milestone-strip" role="group" aria-label="Milestones M1 to M6">
+      {
+        milestones.map((m) => (
+          <div class="milestone">
+            <span class="milestone-id">{m.id}</span>
+            <span class="milestone-date">{m.date}</span>
+            <span class="milestone-desc">{m.desc}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
