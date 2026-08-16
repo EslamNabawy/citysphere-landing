@@ -7,7 +7,12 @@ import { base } from 'astro:config/client';
       <img class="brand-icon" src={`${base}/favicon.svg`} alt="CitySphere" />
       <span class="brand-name">CitySphere</span>
     </a>
-    <nav aria-label="Primary">
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a class="nav-link" href={`${base}/`}>Home</a>
       <a class="nav-link" href={`${base}/#nebu`}>NEBU</a>
       <a class="nav-link" href={`${base}/#systems`}>Systems</a>
@@ -16,3 +21,23 @@ import { base } from 'astro:config/client';
     </nav>
   </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  if (toggle && nav) {
+    const close = () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open menu');
+    };
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', (e) => { if (!e.target.closest('.site-header')) close(); });
+  }
+</script>
