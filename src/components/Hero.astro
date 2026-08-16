@@ -1,5 +1,5 @@
 ---
-import BrandVisual from './BrandVisual.astro';
+import { base } from 'astro:config/client';
 ---
 <section class="hero" id="top">
   <div class="container hero-grid">
@@ -18,7 +18,7 @@ import BrandVisual from './BrandVisual.astro';
       </div>
     </div>
     <div class="hero-visual">
-      <BrandVisual />
+      <img class="hero-logo" src={`${base}/logo-color.svg`} alt="CitySphere" />
     </div>
   </div>
 </section>

@@ -123,12 +123,14 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  gap: var(--s4);
+  min-height: 68px;
+  flex-wrap: wrap;
 }
-.site-header .brand img { height: 34px; width: auto; display: block; }
-.site-header nav { display: flex; align-items: center; gap: var(--s5); }
-.site-header nav a { color: var(--navy); font-weight: 500; }
-.site-header nav a:hover { color: var(--turquoise); text-decoration: none; }
+.site-header .brand img { height: 32px; width: auto; display: block; }
+.site-header nav { display: flex; align-items: center; gap: var(--s5); flex-wrap: wrap; }
+.nav-link { color: var(--navy); font-weight: 500; font-size: var(--fs-sm); white-space: nowrap; }
+.nav-link:hover { color: var(--turquoise); text-decoration: none; }
 
 /* Hero */
 .hero { background: var(--ivory); padding: var(--s9) 0 var(--s8); }
@@ -138,7 +140,7 @@ a:hover { text-decoration: underline; }
 .hero p.lead { max-width: 52ch; color: var(--structure); }
 .hero .actions { display: flex; gap: var(--s3); flex-wrap: wrap; margin-top: var(--s5); }
 .hero-visual { display: flex; justify-content: center; }
-.brand-visual { width: 100%; max-width: 460px; height: auto; }
+.hero-logo { width: 100%; max-width: 380px; height: auto; }
 
 /* NEBU flagship */
 .nebu { background: var(--navy); color: var(--ivory); }
@@ -200,7 +202,8 @@ a:hover { text-decoration: underline; }
 }
 @media (max-width: 560px) {
   .steps { grid-template-columns: 1fr; }
-  .site-header nav .nav-link { display: none; }
+  .site-header .inner { min-height: 0; padding: var(--s2) 0; }
+  .site-header nav { gap: var(--s3); width: 100%; justify-content: flex-start; }
   .section { padding: var(--s8) 0; }
 }
 
