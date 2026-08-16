@@ -1,0 +1,83 @@
+---
+// "Responsive Rhythm" — abstract civic geometry: measured vertical intervals
+// on a calibrated grid, with turquoise active nodes and a single amber value mark.
+// No literal skyline, globe, or AI imagery (per brand exclusions).
+const bars = [
+  { h: 120, c: 'var(--navy)' },
+  { h: 196, c: 'var(--structure)' },
+  { h: 92, c: 'var(--navy)' },
+  { h: 244, c: 'var(--structure)' },
+  { h: 150, c: 'var(--turquoise)' },
+  { h: 208, c: 'var(--navy)' },
+  { h: 112, c: 'var(--structure)' },
+  { h: 262, c: 'var(--turquoise)' },
+  { h: 168, c: 'var(--navy)' },
+];
+const x0 = 46;
+const step = 62;
+const w = 22;
+const baseY = 360;
+const nodes = bars.map((b, i) => ({
+  x: x0 + i * step,
+  top: baseY - b.h,
+  c: b.c,
+}));
+// amber "value" marker on the tallest navy-ish bar (index 3)
+const amberIndex = 3;
+---
+
+<svg
+  class="brand-visual"
+  viewBox="0 0 640 420"
+  role="img"
+  aria-label="Abstract CitySphere rhythm — measured intervals and active intelligence"
+  preserveAspectRatio="xMidYMid meet"
+>
+  <!-- baseline -->
+  <line x1="20" y1={baseY} x2="620" y2={baseY} stroke="var(--structure-soft)" stroke-width="1.5" />
+  <!-- measured grid ticks -->
+  {
+    Array.from({ length: 11 }, (_, i) => (
+      <line
+        x1={20 + i * 60}
+        y1={baseY - 6}
+        x2={20 + i * 60}
+        y2={baseY + 6}
+        stroke="var(--structure-soft)"
+        stroke-width="1"
+      />
+    ))
+  }
+  <!-- bars -->
+  {
+    nodes.map((n) => (
+      <rect x={n.x} y={n.top} width={w} height={baseY - n.top} rx="3" fill={n.c} />
+    ))
+  }
+  <!-- turquoise active nodes + connecting rhythm line -->
+  <polyline
+    points={nodes
+      .filter((_, i) => i === 4 || i === 7)
+      .map((n) => `${n.x + w / 2},${n.top}`)
+      .join(' ')}
+    fill="none"
+    stroke="var(--turquoise)"
+    stroke-width="2"
+    stroke-dasharray="2 5"
+  />
+  {
+    nodes.map((n, i) => {
+      const isActive = i === 4 || i === 7;
+      const isAmber = i === amberIndex;
+      if (!isActive && !isAmber) return null;
+      return (
+        <circle
+          cx={n.x + w / 2}
+          cy={n.top}
+          r={isAmber ? 7 : 6}
+          fill={isAmber ? 'var(--amber)' : 'var(--turquoise)'}
+        />
+      );
+    })
+  }
+</svg>

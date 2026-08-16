@@ -1,18 +1,24 @@
 ---
+import BrandVisual from './BrandVisual.astro';
 ---
 <section class="hero" id="top">
-  <div class="container">
-    <span class="eyebrow">CitySphere</span>
-    <h1>Smart cities that improve how people live, move, work, and grow.</h1>
-    <div class="rule"></div>
-    <p class="lead">
-      CitySphere is a master developer and long-term operator of smart cities in Egypt — building the
-      physical city, connecting it digitally, operating it intelligently, and improving everyday life
-      over time. Its flagship is NEBU, a fully independent future city.
-    </p>
-    <div class="actions">
-      <a class="btn btn-primary" href="#nebu">Explore NEBU</a>
-      <a class="btn btn-ghost" href="#nebu">Our operating model</a>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">CitySphere</span>
+      <h1>Smart cities that improve how people live, move, work, and grow.</h1>
+      <div class="rule"></div>
+      <p class="lead">
+        CitySphere is a master developer and long-term operator of smart cities in Egypt — building the
+        physical city, connecting it digitally, operating it intelligently, and improving everyday life
+        over time. Its flagship is NEBU, a fully independent future city.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#nebu">Explore NEBU</a>
+        <a class="btn btn-ghost" href="#nebu">Our operating model</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <BrandVisual />
     </div>
   </div>
 </section>

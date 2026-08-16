@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { base } from 'astro:config/client';
+
+const docs = [
+  {
+    title: 'NEBU Program Planning Documents',
+    file: 'nebu-planning-documents.pdf',
+    desc: 'The consolidated planning baseline — Project Schedule, Resource Allocation, Communication, Risk, and Quality Assurance — that operationalises the NEBU Project Charter.',
+  },
+  {
+    title: 'Project Charter',
+    file: 'project-charter.pdf',
+    desc: 'The NEBU Project Charter: purpose, scope, objectives, governance, and the controlling financial and delivery baseline.',
+  },
+];
+---
+
+<Base title="Planning documents — CitySphere / NEBU">
+  <SiteHeader />
+  <main>
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Planning documents</span>
+        <h1>Project documentation</h1>
+        <p class="docs-intro">
+          Approved planning baselines for the NEBU program. Preview each document inline, or download
+          the PDF.
+        </p>
+
+        <div class="doc-grid">
+          {
+            docs.map((d) => (
+              <div class="doc-card">
+                <h2>{d.title}</h2>
+                <p class="doc-desc">{d.desc}</p>
+                <object
+                  class="pdf-preview"
+                  data={`${base}/docs/${d.file}`}
+                  type="application/pdf"
+                >
+                  <p>
+                    Your browser could not display the PDF.{' '}
+                    <a href={`${base}/docs/${d.file}`}>Download {d.title} (PDF)</a>.
+                  </p>
+                </object>
+                <div class="doc-actions">
+                  <a class="btn btn-primary" href={`${base}/docs/${d.file}`} download>
+                    Download PDF
+                  </a>
+                  <a class="btn btn-ghost" href={`${base}/docs/${d.file}`} target="_blank" rel="noopener">
+                    Open in new tab
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="doc-note">
+          Documents are working planning baselines prepared by the NEBU project team under the
+          supervision of Dr. Ghada.
+        </p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</Base>
