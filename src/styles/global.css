@@ -14,7 +14,7 @@
   --ivory-dim: #EFE7DA;
 
   /* Type scale (px) */
-  --fs-display: clamp(2.6rem, 6vw, 4.5rem);
+  --fs-display: clamp(2.2rem, 7vw, 4.5rem);
   --fs-h1: clamp(2rem, 4vw, 3rem);
   --fs-h2: clamp(1.5rem, 3vw, 2rem);
   --fs-h3: 1.25rem;
@@ -45,6 +45,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
+[id] { scroll-margin-top: 88px; }
+img, svg { max-width: 100%; }
 
 body {
   margin: 0;
@@ -203,10 +205,18 @@ a:hover { text-decoration: underline; }
   .site-header nav { gap: var(--s3); }
 }
 @media (max-width: 560px) {
+  .container { padding-left: var(--s3); padding-right: var(--s3); }
   .steps { grid-template-columns: 1fr; }
   .site-header .inner { min-height: 0; padding: var(--s2) 0; }
-  .site-header nav { gap: var(--s3); width: 100%; justify-content: flex-start; }
+  .site-header .brand-icon { height: 40px; }
+  .brand-name { font-size: 1.15rem; }
+  .site-header nav { gap: var(--s4); width: 100%; justify-content: flex-start; }
+  .nav-link { padding: 0.35rem 0; }
+  .hero .actions .btn { flex: 1 1 auto; justify-content: center; }
   .section { padding: var(--s8) 0; }
+  .pdf-preview { height: 360px; }
+  .doc-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .site-footer .top { flex-direction: column; gap: var(--s5); }
 }
 
 /* Documents page */
