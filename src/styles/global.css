@@ -122,12 +122,14 @@ a:hover { text-decoration: underline; }
 .site-header .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--s4);
-  min-height: 68px;
+  justify-content: flex-start;
+  gap: var(--s5);
+  min-height: 72px;
   flex-wrap: wrap;
 }
-.site-header .brand img { height: 32px; width: auto; display: block; }
+.site-header .brand { display: flex; align-items: center; gap: var(--s3); }
+.site-header .brand-icon { height: 46px; width: auto; display: block; }
+.brand-name { font-weight: 700; font-size: 1.35rem; color: var(--navy); letter-spacing: -0.01em; }
 .site-header nav { display: flex; align-items: center; gap: var(--s5); flex-wrap: wrap; }
 .nav-link { color: var(--navy); font-weight: 500; font-size: var(--fs-sm); white-space: nowrap; }
 .nav-link:hover { color: var(--turquoise); text-decoration: none; }

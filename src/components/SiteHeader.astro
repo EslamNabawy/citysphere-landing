@@ -4,12 +4,13 @@ import { base } from 'astro:config/client';
 <header class="site-header">
   <div class="container inner">
     <a class="brand" href={`${base}/`} aria-label="CitySphere — home">
-      <img src={`${base}/logo-color.svg`} alt="CitySphere" />
+      <img class="brand-icon" src={`${base}/favicon.svg`} alt="CitySphere" />
+      <span class="brand-name">CitySphere</span>
     </a>
     <nav aria-label="Primary">
+      <a class="nav-link" href={`${base}/`}>Home</a>
       <a class="nav-link" href={`${base}/#nebu`}>NEBU model</a>
       <a class="nav-link" href={`${base}/documents`}>Planning documents</a>
-      <a class="btn btn-primary" href={`${base}/#nebu`}>Explore NEBU</a>
     </nav>
   </div>
 </header>
